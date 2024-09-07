@@ -3,14 +3,15 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    
-    return HttpResponse('hello')
+    menu = ['Home', 'About', 'Contact', 'Settings']
+    return render(request, 'news/home.html', {'title': 'Home', "menu":menu })
 
 def about(request):
-
-    return HttpResponse('<h1>about</h1>')
+    menu = ['Home', 'About', 'Contact', 'Settings']
+    return render(request, 'news/about.html',{'title': 'About', "menu":menu})
 
 def contact(request):
-    return HttpResponse('<h1>contact</h1>')
+    menu = ['Home', 'About', 'Contact', 'Settings']
+    return render(request, 'news/contact.html',{'title': 'Contact', "menu":menu})
 
 
