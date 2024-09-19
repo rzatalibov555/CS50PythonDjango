@@ -11,12 +11,7 @@ def index(request):
         "title": 'Home',
         "posts": News.objects.all()
     }
-
     return render(request, 'news/index.html', context)
-
-def about(request):
-    menu = ['Home', 'About', 'Contact', 'Settings']
-    return render(request, 'news/about.html',{'title': 'About', "menu":menu})
 
 def contact(request):
     context = {

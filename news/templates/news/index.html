@@ -409,14 +409,18 @@
           <div class="row">
 
             {% for post in posts %}
-            
+              
                 <div class="col-md-4">
                     <div class="mn-img">
                     <img src="{% static 'news/' %}img/news-350x223-1.jpg" />
                     <div class="mn-title">
-                        <a href="{% url "detail" %}">{{post.title}}</a>
+                      <a href="{% url "detail" %}">{{post.title}}</a>
                     </div>
                     </div>
+                    
+                    <a href="{% url "detail" %}">{{post.content|truncatechars:25}}</a>
+                  
+                    {% comment %} <a href="{% url "detail" %}">{{post.content|truncatewords:3}}</a> {% endcomment %}
                 </div>
             
             {% endfor %}
