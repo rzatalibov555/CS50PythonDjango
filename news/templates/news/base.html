@@ -91,10 +91,23 @@
           <div class="navbar-nav mr-auto">
             <a href="{% url "home" %}" class="nav-item nav-link active">Home</a>
             <div class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Category</a>
+              {% if cat_selected == 0 %}
+                <a  href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">Category</a>
+              {% else %}
+                <a  href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Category</a>
+              {% endif %}
+              
               <div class="dropdown-menu">
-                <a href="#" class="dropdown-item">Sub Item 1</a>
-                <a href="#" class="dropdown-item">Sub Item 2</a>
+                {% for c in cats %}
+                  {% if c.pk == cat_selected %}
+                  <a class="dropdown-item">{{c.name}}</a>
+                  {% else %}
+                  <a href="{{ c.get_absolute_url }}" class="dropdown-item">{{c.name}}</a>
+                  {% endif %}
+                
+                {% endfor %}
+                
+               
               </div>
             </div>
             {% comment %} <a href="single-page.html" class="nav-item nav-link">Single Page</a> {% endcomment %}

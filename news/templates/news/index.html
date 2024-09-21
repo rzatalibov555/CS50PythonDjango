@@ -419,6 +419,8 @@
                     </div>
                     
                     <a href="{% url "detail" %}">{{post.content|truncatechars:25}}</a>
+                    <br>
+                    <a href="{% url "detail" %}">{{post.cat}}</a>
                   
                     {% comment %} <a href="{% url "detail" %}">{{post.content|truncatewords:3}}</a> {% endcomment %}
                 </div>
